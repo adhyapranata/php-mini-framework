@@ -103,6 +103,14 @@ Ternary operator
 `null`
 
 ## 10-Functions
+Die Dump Function
+```php
+function dd($data){
+  echo "<pre>";
+  die(var_dump($data));
+  echo "</pre>";
+}
+```
 
 ## 11-MySQL 101
 
