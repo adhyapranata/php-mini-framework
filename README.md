@@ -22,6 +22,7 @@ You can echo your variable along with strings using these 3 ways:
 ## 04-PHP and HTML
 Shorthand for PHP echo:
 ```php
+<?php
   <?= 'Hello, World' ?>
 ```
 
@@ -47,6 +48,8 @@ Nice way to iterate array in HTML
 ## 07-Associative Arrays
 **Create associative array**
 ```php
+<?php
+
 $person = [
   'age' => 23,
   'hair' => 'black',
@@ -56,11 +59,15 @@ $person = [
 
 **Add an associative array item**
 ```php
+<?php
+
 $person['name'] = 'Adhya';
 ```
 
 **Delete an associative array item**
 ```php
+<?php
+
 unset($person['age']);
 ```
 
@@ -75,6 +82,8 @@ unset($person['age']);
 
 **Echo an array**
 ```php
+<?php
+
 echo '<pre>';
 die(var_dump($person));
 echo '</pre>';
@@ -82,6 +91,8 @@ echo '</pre>';
 
 **Add a regular array item**
 ```php
+<?php
+
 $animals = ['dog', 'cat'];
 $animals[] = 'fish'
 ```
@@ -89,6 +100,8 @@ $animals[] = 'fish'
 ## 08-Booleans
 Convert a string to uppercase
 ```php
+<?php
+
 ucwords($heading)
 ```
 
@@ -105,6 +118,8 @@ Ternary operator
 ## 10-Functions
 Die Dump Function
 ```php
+<?php
+
 function dd($data){
   echo "<pre>";
   die(var_dump($data));
@@ -178,6 +193,8 @@ mysql> select * from table_name;
 ## 12-Classes 101
 Simple example of PHP class:
 ```php
+<?php
+
 class Task
 {
   public $description;
@@ -204,6 +221,8 @@ class Task
 ## 13-PDO
 Connect to database
 ```php
+<?php
+
 // Always wrap PDO connection in try catch
 try {
   return new PDO('mysql:host=127.0.0.1;dbname=mytodo', 'root', '');
@@ -213,11 +232,15 @@ try {
 ```
 Prepare and execute query
 ```php
+<?php
+
 $statement = $pdo->prepare('select * from todos');
 $statement->execute();
 ```
 Fetch data from database
 ```php
+<?php
+
 // return value in both associative and index array
 var_dump($statement->fetchAll());
 
@@ -229,5 +252,30 @@ var_dump($statement->fetchAll(PDO::FETCH_CLASS, 'Task'))
 ```
 
 ## 14-PDO Refactoring
+Use static modifier so we can use this class as a facade without need of instantiation
+```php
+<?php
+
+public static function make()
+{
+  try {
+    return new PDO('mysql:host=127.0.0.1;dbname=mytodo', 'root', '');
+  } catch (PDOException $e) {
+    die($e->getMessage());
+  }
+}
+```
+
+Create a bootstrap file to accommodate the pre-setup. For example:
+```php
+<?php
+
+require 'database/Connection.php';
+require 'database/QueryBuilder.php';
+
+return new QueryBuilder(
+  Connection::make()
+);
+```
 
 ## 15-Hide Your Secret Password
