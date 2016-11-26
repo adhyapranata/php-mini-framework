@@ -202,6 +202,31 @@ class Task
 ```
 
 ## 13-PDO
+Connect to database
+```php
+// Always wrap PDO connection in try catch
+try {
+  return new PDO('mysql:host=127.0.0.1;dbname=mytodo', 'root', '');
+} catch (PDOException $e) {
+  die($e->getMessage());
+}
+```
+Prepare and execute query
+```php
+$statement = $pdo->prepare('select * from todos');
+$statement->execute();
+```
+Fetch data from database
+```php
+// return value in both associative and index array
+var_dump($statement->fetchAll());
+
+// return value in associative array
+var_dump($statement->fetchAll(PDO::FETCH_OBJ));
+
+// return value and assign it to a class
+var_dump($statement->fetchAll(PDO::FETCH_CLASS, 'Task'))
+```
 
 ## 14-PDO Refactoring
 
