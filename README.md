@@ -176,6 +176,30 @@ mysql> select * from table_name;
 ```
 
 ## 12-Classes 101
+Simple example of PHP class:
+```php
+class Task
+{
+  public $description;
+  public $completed = false;
+
+  public function __construct($description)
+  {
+    # Automatically triggered on instantiation
+    $this->description = $description;
+  }
+
+  public function complete()
+  {
+    $this->completed = true;
+  }
+
+  public function isComplete()
+  {
+    return $this->completed;
+  }
+}
+```
 
 ## 13-PDO
 
