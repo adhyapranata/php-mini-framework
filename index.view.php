@@ -15,16 +15,6 @@
 
     <h1>Task For The Day</h1>
 
-    <!-- Example One -->
-    <ul>
-      <?php foreach ($task as $heading => $value) : ?>
-        <li>
-          <strong><?= ucwords($heading); ?></strong>: <?= $value; ?>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-
-    <!-- Example Two -->
     <ul>
       <li>
         <strong>Name: </strong> <?= $task['title']; ?>
@@ -35,11 +25,18 @@
       </li>
 
       <li>
-        <strong>Personal Responsible: </strong> <?= $task['assigned_to']; ?>
+        <strong>Person Responsible: </strong> <?= $task['assigned_to']; ?>
       </li>
 
       <li>
-        <strong>Status: </strong> <?= $task['completed'] ? 'Complete' : 'Incomplete' ; ?>
+        <strong>Status: </strong>
+        <?php if ($task['completed']) : ?>
+          <span class="icon">
+            &#9989;
+          </span>
+        <?php else : ?>
+          <span class="icon">Incomplete</span>
+        <?php endif; ?>
       </li>
     </ul>
 
