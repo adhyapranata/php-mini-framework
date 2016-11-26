@@ -80,7 +80,7 @@ die(var_dump($person));
 echo '</pre>';
 ```
 
-**Delete a regular array item**
+**Add a regular array item**
 ```php
 $animals = ['dog', 'cat'];
 $animals[] = 'fish'
