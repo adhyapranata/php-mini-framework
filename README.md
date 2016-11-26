@@ -45,6 +45,46 @@ Nice way to iterate array in HTML
 ```
 
 ## 07-Associative Arrays
+**Create associative array**
+```php
+$person = [
+  'age' => 23,
+  'hair' => 'black',
+  'career' => 'web developer'
+];
+```
+
+**Add an associative array item**
+```php
+$person['name'] = 'Adhya';
+```
+
+**Delete an associative array item**
+```php
+unset($person['age']);
+```
+
+**Print an associative array**
+```php
+<ul>
+  <?php foreach ($person as $key => $feature) : ?>
+    <li><strong><?= $key; ?></strong> <?= $feature; ?></li>
+  <?php endforeach; ?>
+</ul>
+```
+
+**Echo an array**
+```php
+echo '<pre>';
+die(var_dump($person));
+echo '</pre>';
+```
+
+**Delete a regular array item**
+```php
+$animals = ['dog', 'cat'];
+$animals[] = 'fish'
+```
 
 ## 08-Booleans
 
