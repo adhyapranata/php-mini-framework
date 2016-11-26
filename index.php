@@ -1,22 +1,10 @@
 <?php
 
-/*
-$animals = ['dog', 'cat'];
-$animals[] = 'fish'
-*/
-
-$person = [
-  'age' => 23,
-  'hair' => 'black',
-  'career' => 'web developer'
+$task = [
+  'title' => 'Finish homework',
+  'due' => 'today',
+  'assigned_to' => 'Adhya',
+  'completed' => false
 ];
-
-$person['name'] = 'Adhya';
-
-unset($person['age']);
-
-echo '<pre>';
-die(var_dump($person));
-echo '</pre>';
 
 require 'index.view.php';

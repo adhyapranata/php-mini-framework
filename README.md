@@ -1,5 +1,5 @@
 # php-learning
-PHP Practitioner from Laracast
+My personal notes of **PHP Practitioner** course from Laracast
 
 ## 01-Get PHP Installed
 **Use Homebrew to install the PHP**
@@ -87,6 +87,17 @@ $animals[] = 'fish'
 ```
 
 ## 08-Booleans
+Convert a string to uppercase
+```php
+ucwords($heading)
+```
+
+Ternary operator
+```php
+<li>
+  <strong>Status: </strong> <?= $task['completed'] ? 'Complete' : 'Incomplete' ; ?>
+</li>
+```
 
 ## 09-Conditionals
 
