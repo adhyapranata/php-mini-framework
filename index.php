@@ -2,4 +2,4 @@
 
 $greeting = "Hello, " . htmlspecialchars($_GET['name']);
 
-require "index.view.php";
+require 'index.view.php';
