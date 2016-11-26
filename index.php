@@ -1,5 +1,9 @@
 <?php
 
-$greeting = "Hello, " . htmlspecialchars($_GET['name']);
+$names = [
+  'Jeff',
+  'John',
+  'Mary'
+];
 
 require 'index.view.php';

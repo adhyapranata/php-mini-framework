@@ -37,6 +37,12 @@ So far we only have single file called index.php. For separation of concerns, Fo
 3. Call **index.view.php** in **index.php** using `require index.view.php`
 
 ## 06-Understanding Arrays
+Nice way to iterate array in HTML
+```php
+  <?php foreach ($names as $name) : ?>
+    <li><?= $name; ?></li>
+  <?php endforeach; ?>
+```
 
 ## 07-Associative Arrays
 
