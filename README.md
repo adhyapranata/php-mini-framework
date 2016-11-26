@@ -113,6 +113,67 @@ function dd($data){
 ```
 
 ## 11-MySQL 101
+If you don't have mysql installed yet
+```
+brew search mysql
+brew install mysql
+```
+
+Adding user accounts. [click here for more information](http://dev.mysql.com/doc/refman/5.7/en/adding-users.html)
+1. Connect as root
+```shell
+mysql -u root -p
+```
+2. Create users and grant access
+```sql
+mysql> CREATE USER 'finley'@'localhost' IDENTIFIED BY 'some_pass';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'finley'@'localhost'
+    ->     WITH GRANT OPTION;
+mysql> CREATE USER 'finley'@'%' IDENTIFIED BY 'some_pass';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'finley'@'%'
+    ->     WITH GRANT OPTION;
+mysql> CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin_pass';
+mysql> GRANT RELOAD,PROCESS ON *.* TO 'admin'@'localhost';
+mysql> CREATE USER 'dummy'@'localhost';
+```
+
+Some useful sql commands:
+1. To show all databases
+```sql
+mysql> show databases;
+```
+2. To create a database
+```sql
+mysql> create database database_name;
+```
+3. To use database
+```sql
+mysql> use database_name;
+```
+4. To show all tables
+```sql
+mysql> show tables;
+```
+5. To show table structure
+```sql
+mysql> describe table_name;
+```
+6. To create a table
+```sql
+mysql> create table todos (id integer PRIMARY KEY AUTO_INCREMENT, description text NOT NULL, completed boolean NOT NULL);
+```
+7. To delete a table
+```sql
+mysql> drop table_name;
+```
+8. To insert a data row
+```sql
+mysql> insert into todos (description, completed) values('Go to the store', false);
+```
+9. To select all data rows in a table
+```sql
+mysql> select * from table_name;
+```
 
 ## 12-Classes 101
 
