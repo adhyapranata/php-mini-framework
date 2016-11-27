@@ -295,3 +295,79 @@ return [
   ]
 ];
 ```
+## 16-Make a Router
+user `trim` to cut white spaces or specific characters off from the outer sides of a string
+```php
+<?php
+
+trim($_SERVER['REQUEST_URI'], '/');
+```
+
+*Can't use $this in a static function. use 'new static' or 'new self' instead to instantiate self class.*
+
+Simple Router class example:
+```php
+<?php
+
+<?php
+
+class Router
+{
+  protected $routes = [];
+
+  public static function load($file)
+  {
+    // Use 'new static' or 'new self' which equal to 'new Router'
+    $router = new static;
+
+    require $file;
+
+    return $router;
+  }
+
+  public function define($routes)
+  {
+    $this->routes = $routes;
+  }
+
+  public function direct($uri)
+  {
+    if (array_key_exists($uri, $this->routes)) {
+      return $this->routes[$uri];
+    }
+
+    throw new Exception("No route defined for this uri");
+
+  }
+}
+```
+
+Put routes list somewhere else in the root directory
+```php
+<?php
+
+$router->define([
+  '' => 'controllers/index.php',
+  'about' => 'controllers/about.php',
+  'about/culture' => 'controllers/about-culture.php',
+  'contact' => 'controllers/contact.php',
+]);
+```
+
+## 17-Dry Up Your Views
+
+## 18-Filtering Arrays
+
+## 19-Forms Request Types and Routing
+
+## 20-Dynamic Inserts With PDO
+
+## 21-Composer Autoloading
+
+## 22-Your First DI Container
+
+## 23-Refactoring to Controller Classes
+
+## 24-Switch to Namespaces
+
+## 25-Meet Your Batteries Included Framework Laravel
