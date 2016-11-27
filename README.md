@@ -358,6 +358,44 @@ $router->define([
 `null`
 
 ## 18-Filtering Arrays
+```php
+<?php
+
+class Post
+{
+  public $title;
+  public $author;
+  public $published;
+
+  public function __construct($title, $author, $published)
+  {
+    $this->title = $title;
+    $this->author = $author;
+    $this->published = $published;
+  }
+
+  $posts = [
+    new Post('My First Post', 'JW', true),
+    new Post('My First Post', 'JW', true),
+    new Post('My First Post', 'AW', true),
+    new Post('My First Post', 'TT', false)
+  ]
+
+  //Array filter
+  $publishedPosts = array_filter($posts, function($post) {
+    return $post->published;
+  });
+
+  //Array map
+  $posts = array_map(function($post) {
+    return (array) $post;
+  }, $posts);
+
+  //Array column
+  $authors = array_column($posts, 'author', 'title');
+}
+
+```
 
 ## 19-Forms Request Types and Routing
 
