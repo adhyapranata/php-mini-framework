@@ -2,11 +2,15 @@
 
 class Connection
 {
-  // Use static modifier so we can use this class as a facade without need of instantiation
-  public static function make()
+  public static function make($config)
   {
     try {
-      return new PDO('mysql:host=127.0.0.1;dbname=mytodo', 'root', '');
+      return new PDO(
+        $config['connection'] . ';dbname=' . $config['name'],
+        $config['username'],
+        $config['password'],
+        $config['options']
+      );
     } catch (PDOException $e) {
       die($e->getMessage());
     }

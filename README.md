@@ -279,3 +279,19 @@ return new QueryBuilder(
 ```
 
 ## 15-Hide Your Secret Password
+Create a config file to handle the general setting of your application (Database, Email, etc.)
+```php
+<?php
+
+return [
+  'database' => [
+      'name' => 'mytodo',
+      'username' => 'root',
+      'password' => '',
+      'connection' => 'mysql:host=127.0.0.1',
+      'options' => [
+          PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+      ]
+  ]
+];
+```
