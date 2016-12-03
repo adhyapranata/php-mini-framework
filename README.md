@@ -1,6 +1,18 @@
 # php-learning
 My personal notes of **PHP Practitioner** course from Laracast
 
+Project requirements:
+* PHP 7
+* mySQL
+* composer
+* mySQL GUI. Ex: Sequel Pro (Optional)
+
+How to run:
+1. Setup the database in `config.php`. Make sure to create `users` table with `name` column
+2. run `composer install`
+3. run `php -S localhost:8888`
+
+
 ## 01-Get PHP Installed
 **Use Homebrew to install the PHP**
 
@@ -464,6 +476,16 @@ header('Location: /');
 ```
 
 ## 21-Composer Autoloading
+Autoload classes with composer (in `composer.json` file). Write `./` to load all the classes in the project
+```json
+{
+  "autoload": {
+    "classmap": [
+      "./"
+    ]
+  }
+}
+```
 
 ## 22-Your First DI Container
 
