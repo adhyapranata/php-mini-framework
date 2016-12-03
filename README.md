@@ -398,6 +398,29 @@ class Post
 ```
 
 ## 19-Forms Request Types and Routing
+Use `parse_url` to filter out the query string
+```php
+<?php
+
+public static function uri()
+{
+  return $uri = trim($_SERVER['REQUEST_URI'], '/');
+  return $uri = trim(
+    parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'
+  );
+}
+```
+
+Group the requests into based on their action
+```php
+<?php
+
+$router->get('', 'controllers/index.php');
+$router->get('about', 'controllers/about.php');
+$router->get('about/culture', 'controllers/about-culture.php');
+$router->get('contact', 'controllers/contact.php');
+$router->post('names', 'controllers/add-name.php');
+```
 
 ## 20-Dynamic Inserts With PDO
 

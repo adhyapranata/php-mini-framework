@@ -4,6 +4,13 @@ class Request
 {
   public static function uri()
   {
-    return $uri = trim($_SERVER['REQUEST_URI'], '/');
+    return $uri = trim(
+      parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'
+    );
+  }
+
+  public static function method()
+  {
+    return $_SERVER['REQUEST_METHOD'];
   }
 }
