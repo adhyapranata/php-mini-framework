@@ -423,6 +423,45 @@ $router->post('names', 'controllers/add-name.php');
 ```
 
 ## 20-Dynamic Inserts With PDO
+Put the input array as a parameter of execute method to bind the values
+```php
+<?php
+public function insert($table, $parameters)
+{
+  $sql = sprintf(
+    'insert into %s (%s) values (%s)',
+    $table,
+    implode(', ', array_keys($parameters)),
+    ':' . implode(', :', array_keys($parameters))
+  );
+
+  try {
+    $statement = $this->pdo->prepare($sql);
+    $statement->execute($parameters);
+  } catch (Exception $e) {
+    return $e->getMessage();
+  }
+}
+```
+
+For more readable sql query template, use sprintf
+```php
+<?php
+
+$sql = sprintf(
+  'insert into %s (%s) values (%s)',
+  $table,
+  implode(', ', array_keys($parameters)),
+  ':' . implode(', :', array_keys($parameters))
+);
+```
+
+Use `header` to redirect
+```php
+<?php
+
+header('Location: /');
+```
 
 ## 21-Composer Autoloading
 
