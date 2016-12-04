@@ -514,6 +514,18 @@ class App
 *Note: Always run `composer-autoload` when adding new class to update the autoload file*
 
 ## 23-Refactoring to Controller Classes
+Create a `helper` file only if you already have a handful of global functions.
+Try to keep global function as little as possible.
+
+use `extract($data)` to extract data from `compact('users')` function.
+
+Use "Splat" function to break array into arguments
+```php
+<?php
+  return $this->callAction(
+    ...explode('@', $this->routes[$requestType][$uri])
+  );
+```
 
 ## 24-Switch to Namespaces
 
