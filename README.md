@@ -528,5 +528,18 @@ Use "Splat" function to break array into arguments
 ```
 
 ## 24-Switch to Namespaces
+To add `namespace`
+```php
+<?php
+namespace App\Core\Database;
+```
+
+To use class with namespace
+```php
+<?php
+use App\Core\Database\Connection
+```
+
+*Note: When using `use`, it should be written after `namespace`*
 
 ## 25-Meet Your Batteries Included Framework Laravel

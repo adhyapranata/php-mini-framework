@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Core;
+
 class Router
 {
   protected $routes = [
@@ -12,7 +14,7 @@ class Router
     // Use 'new static' or 'new self' which equal to 'new Router'
     $router = new static;
 
-    require $file;
+    require "app/{$file}";
 
     return $router;
   }
@@ -40,6 +42,7 @@ class Router
 
   protected function callAction($controller, $action)
   {
+    $controller = "App\\Controllers\\{$controller}";
     $controller = new $controller;
     if (! method_exists($controller, $action)) {
       throw new Exception(
