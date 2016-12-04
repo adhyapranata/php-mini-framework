@@ -543,3 +543,4 @@ use App\Core\Database\Connection
 *Note: When using `use`, it should be written after `namespace`*
 
 ## 25-Meet Your Batteries Included Framework Laravel
+null
