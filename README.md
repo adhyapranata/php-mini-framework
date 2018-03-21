@@ -1,5 +1,6 @@
 # php-learning
-My personal notes of **PHP Practitioner** course from Laracast
+Mini PHP framework example for web application.
+Lesson provided by Laracasts.
 
 Project requirements:
 * PHP 7
