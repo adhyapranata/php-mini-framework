@@ -1,6 +1,5 @@
-# php-learning
+# php-mini-framework
 Mini PHP framework example for web application.
-Lesson provided by Laracasts.
 
 Project requirements:
 * PHP 7
@@ -13,8 +12,8 @@ How to run:
 2. run `composer install`
 3. run `php -S localhost:8888`
 
-
-## 01-Get PHP Installed
+## PHP Notes
+### 01-Get PHP Installed
 **Use Homebrew to install the PHP**
 
 To search all PHP related formulas
@@ -23,16 +22,16 @@ To search all PHP related formulas
 To install the php (mine is php 7.1) formula
 `brew install homebrew/php/php71`
 
-## 02-Install a Proper Code Editor
+### 02-Install a Proper Code Editor
 I'm using Atom. If you need curated atom packages for your development environment, check out [mehcode/awesome-atom](https://github.com/mehcode/awesome-atom)
 
-## 03-Variables
+### 03-Variables
 You can echo your variable along with strings using these 3 ways:
 * `echo "Hello, $name"`
 * `echo "Hello, {$name}"`
 * `echo 'Hello, ' . $name`
 
-## 04-PHP and HTML
+### 04-PHP and HTML
 Shorthand for PHP echo:
 ```php
 <?php
@@ -44,13 +43,13 @@ Sanitize HTML special characters:
   <?= "Hello, " . htmlspecialchars($_GET['name']); ?>
 ```
 
-## 05-Separating PHP Logic From The Presentation
+### 05-Separating PHP Logic From The Presentation
 So far we only have single file called index.php. For separation of concerns, Follow this steps:
 1. Create new file specifically to display HTML. Use proper name convention for the file like **index.view.php**
 2. Move all the HTML code to **index.view.php**
 3. Call **index.view.php** in **index.php** using `require index.view.php`
 
-## 06-Understanding Arrays
+### 06-Understanding Arrays
 Nice way to iterate array in HTML
 ```php
   <?php foreach ($names as $name) : ?>
@@ -58,7 +57,7 @@ Nice way to iterate array in HTML
   <?php endforeach; ?>
 ```
 
-## 07-Associative Arrays
+### 07-Associative Arrays
 **Create associative array**
 ```php
 <?php
@@ -110,7 +109,7 @@ $animals = ['dog', 'cat'];
 $animals[] = 'fish'
 ```
 
-## 08-Booleans
+### 08-Booleans
 Convert a string to uppercase
 ```php
 <?php
@@ -125,10 +124,10 @@ Ternary operator
 </li>
 ```
 
-## 09-Conditionals
+### 09-Conditionals
 `null`
 
-## 10-Functions
+### 10-Functions
 Die Dump Function
 ```php
 <?php
@@ -140,7 +139,7 @@ function dd($data){
 }
 ```
 
-## 11-MySQL 101
+### 11-MySQL 101
 If you don't have mysql installed yet
 ```
 brew search mysql
@@ -203,7 +202,7 @@ mysql> insert into todos (description, completed) values('Go to the store', fals
 mysql> select * from table_name;
 ```
 
-## 12-Classes 101
+### 12-Classes 101
 Simple example of PHP class:
 ```php
 <?php
@@ -231,7 +230,7 @@ class Task
 }
 ```
 
-## 13-PDO
+### 13-PDO
 Connect to database
 ```php
 <?php
@@ -264,7 +263,7 @@ var_dump($statement->fetchAll(PDO::FETCH_OBJ));
 var_dump($statement->fetchAll(PDO::FETCH_CLASS, 'Task'))
 ```
 
-## 14-PDO Refactoring
+### 14-PDO Refactoring
 Use static modifier so we can use this class as a facade without need of instantiation
 ```php
 <?php
@@ -291,7 +290,7 @@ return new QueryBuilder(
 );
 ```
 
-## 15-Hide Your Secret Password
+### 15-Hide Your Secret Password
 Create a config file to handle the general setting of your application (Database, Email, etc.)
 ```php
 <?php
@@ -308,7 +307,7 @@ return [
   ]
 ];
 ```
-## 16-Make a Router
+### 16-Make a Router
 user `trim` to cut white spaces or specific characters off from the outer sides of a string
 ```php
 <?php
@@ -367,10 +366,10 @@ $router->define([
 ]);
 ```
 
-## 17-Dry Up Your Views
+### 17-Dry Up Your Views
 `null`
 
-## 18-Filtering Arrays
+### 18-Filtering Arrays
 ```php
 <?php
 
@@ -410,7 +409,7 @@ class Post
 
 ```
 
-## 19-Forms Request Types and Routing
+### 19-Forms Request Types and Routing
 Use `parse_url` to filter out the query string
 ```php
 <?php
@@ -435,7 +434,7 @@ $router->get('contact', 'controllers/contact.php');
 $router->post('names', 'controllers/add-name.php');
 ```
 
-## 20-Dynamic Inserts With PDO
+### 20-Dynamic Inserts With PDO
 Put the input array as a parameter of execute method to bind the values
 ```php
 <?php
@@ -476,7 +475,7 @@ Use `header` to redirect
 header('Location: /');
 ```
 
-## 21-Composer Autoloading
+### 21-Composer Autoloading
 Autoload classes with composer (in `composer.json` file). Write `./` to load all the classes in the project
 ```json
 {
@@ -488,7 +487,7 @@ Autoload classes with composer (in `composer.json` file). Write `./` to load all
 }
 ```
 
-## 22-Your First DI Container
+### 22-Your First DI Container
 Class for Dependency Injection Container
 ```php
 <?php
@@ -514,7 +513,7 @@ class App
 
 *Note: Always run `composer-autoload` when adding new class to update the autoload file*
 
-## 23-Refactoring to Controller Classes
+### 23-Refactoring to Controller Classes
 Create a `helper` file only if you already have a handful of global functions.
 Try to keep global function as little as possible.
 
@@ -528,7 +527,7 @@ Use "Splat" function to break array into arguments
   );
 ```
 
-## 24-Switch to Namespaces
+### 24-Switch to Namespaces
 To add `namespace`
 ```php
 <?php
@@ -543,5 +542,5 @@ use App\Core\Database\Connection
 
 *Note: When using `use`, it should be written after `namespace`*
 
-## 25-Meet Your Batteries Included Framework Laravel
+### 25-Meet Your Batteries Included Framework Laravel
 null
